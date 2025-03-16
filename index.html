@@ -1,1 +1,47 @@
-<a href="https://yip.su/RNLY35.torrent">IDK</a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вставка содержимого с другого сайта</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #content {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        Загрузка...
+    </div>
+
+    <script>
+        const url = 'https://yip.su/1yw4X4';
+
+        async function fetchContent() {
+            try {
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error('Ошибка при загрузке содержимого');
+                }
+
+                const text = await response.text();
+
+                document.getElementById('content').innerHTML = text;
+            } catch (error) {
+                document.getElementById('content').innerHTML = 'Не удалось загрузить содержимое: ' + error.message;
+            }
+        }
+
+        fetchContent();
+    </script>
+</body>
+</html>
